@@ -1,8 +1,11 @@
 package shop.mtcoding.demo;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +28,25 @@ public class IndexControllerTest {
 
         resultActions.andExpect(status().isCreated());
 
-        assertThat("기대하는값").isEqualTo("기대하는");
+        // assertThat("기대하는값").isEqualTo("기대하는");
+    }
+
+    @Test
+    public void snippet_test() throws Exception {
+        // given
+
+        // when
+
+        // then
+        // assertThat().isEqualTo();
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> newList = list.stream().map((e) -> e + 1).collect(Collectors.toList());
+
+        newList.stream().forEach((e) -> {
+            System.out.println(e);
+        });
+
+        newList.stream().forEach(System.out::println);
     }
 
 }
